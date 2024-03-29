@@ -4,9 +4,9 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import os
+import sys
 import functools
 from collections import defaultdict
-from collections.abc import Mapping
 from copy import copy
 
 from grako.util import indent, trim, ustr, urepr, strtype, compress_seq, chunks
@@ -17,6 +17,10 @@ from grako.contexts import ParseContext
 from grako.objectmodel import Node
 from grako.bootstrap import EBNFBootstrapBuffer
 
+if sys.version < 3.10:
+    from collections import Mapping
+else:
+    from collections.abc import Mapping
 
 PEP8_LLEN = 72
 
