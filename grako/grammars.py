@@ -5,6 +5,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import os
 import sys
+import platform
 import functools
 from collections import defaultdict
 from copy import copy
@@ -17,7 +18,10 @@ from grako.contexts import ParseContext
 from grako.objectmodel import Node
 from grako.bootstrap import EBNFBootstrapBuffer
 
-if sys.version < 3.10:
+
+python_version = platform.python_version_tuple()
+
+if python_version < ('3', '10'):
     from collections import Mapping
 else:
     from collections.abc import Mapping
